@@ -45,6 +45,10 @@ module zaxis(){
 
 difference(){
 union(){
+    
+translate([-4,15,0]){    
+    cube([24,24,24]);
+}
 
 translate([16,195,20]){
     rotate([90,180,90]){
@@ -64,14 +68,9 @@ translate([16,34,180]){
     import("imports/90_Surface_Bracket_2.stl.stl");
     }
 }
-/*
-translate([13,34,-40]){
-    cube([7,5,60]);
-}
-translate([-44,34,18]){
-    cube([64,5,6]);
-}
-*/
+translate([-24,15,0]){
+ cube([40,20,20]);
+}  
 translate([1,0,0]){
     extension();
 }
@@ -85,6 +84,8 @@ rotate([180,270,90]){
         extension();
     }
 }
+
+zaxis();
 
 
 }
@@ -108,15 +109,20 @@ cube([60,2,60]);
 shave();
 }
 
-translate([-24,15,0]){
-cube([40,20,20]);
-}    
-
-
-
+/*
 translate([200,200,200]){
-    extension();
+    difference(){
+        cube([20,40,20]);
+        rotate([0,0,45]){
+            cube([60,60,40]);
+        }
+    }
 }
+*/
+  
+
+
+
 
 
 
