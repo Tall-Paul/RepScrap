@@ -10,4 +10,4 @@ My plan for it includes:
     Eddy current sensor for bed levelling (probably the BTT eddy)
     A toolhead board (the BTT EBB42 probably)
 
-![image of repscrap](misc/hamish.jpg?raw=true "repscrap")
+![image of repscrap](misc/Hamish.jpg?raw=true "repscrap")
