@@ -1,3 +1,5 @@
+$fn=36;
+
 module extension(){
     translate([15,-85,-40]){
     rotate([90,0,90]){
@@ -14,6 +16,10 @@ cube([5,120,7]);
 }
 
 
+}
+
+module foot(){
+    
 }
 
 module shave(){
@@ -84,42 +90,33 @@ rotate([180,270,90]){
         extension();
     }
 }
+translate([4,25,15]){
+    cylinder(15,6.6,6.6);
+}
 
 //zaxis();
 
 
 }
 
-/*
-translate([20,-90,-50]){
-    cube([2,120,100]);
-}
-translate([-50,-90,24]){
-    cube([120,120,2]);
-}
-translate([-24,-35,0]){
-     cube([40,20,20]);
-}
-translate([-44,33,-40]){
-cube([60,2,60]);
-}
-*/
+
 //shave corner
 
 shave();
-}
 
-/*
-translate([200,200,200]){
+translate([4,25,15]){
+    cylinder(15,3.6,3.6);
+}
+}
+//add foot
+
+
+translate([4,25,15]){
     difference(){
-        cube([20,40,20]);
-        rotate([0,0,45]){
-            cube([60,60,40]);
-        }
+        cylinder(15,6.6,6.6);
+        cylinder(15,3.6,3.6);
     }
 }
-*/
-  
 
 
 

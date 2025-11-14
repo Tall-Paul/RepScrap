@@ -35,8 +35,10 @@ module shave(){
 }
 
 module zaxis(){
-    import("imports/z-axis_support_bearing_no_screws.stl");
-    translate([-16,6.6,15]){
+    translate([0,0.4,0]){
+        import("imports/z-axis_support_bearing_no_screws.stl");
+    }
+    translate([-16,7,15]){
         cube([32,7.9,5]);
     }
 
@@ -97,15 +99,15 @@ translate([20,-90,-50]){
 translate([-50,-90,24]){
     cube([120,120,2]);
 }
-translate([-24,-35,0]){
-     cube([40,20,20]);
-}
+
 translate([-44,33,-40]){
 cube([60,2,60]);
 }
 */
 //shave corner
-
+translate([-24,-35,0]){
+     cube([40,20,20]);
+}
 shave();
 }
 
