@@ -1,4 +1,6 @@
 include <libraries/vslots.scad>
+include <libraries/motors.scad>
+
 
 
 module oneside(){
@@ -92,6 +94,20 @@ module oneside(){
                 cube([150,300,40]);
         }
         
+        translate([-18,-27.5,0]){
+            nema17();
+        }
+         translate([-18,-434.5,0]){
+            nema17();
+        }
+        translate([3.5,-5.5,50]){
+            color("silver")
+                cylinder(500,4,4);
+        }
+        translate([3.5,-413.5,50]){
+            color("silver")
+                cylinder(500,4,4);
+        }
     }
 }
 
