@@ -19,6 +19,12 @@ Next up is
 
     The Y axis gantries 
 
+Thanks to:
+
+    https://github.com/matthew-yates/openbuildsParts (for parts used in openscad modelling)
+    https://www.printables.com/model/449167-ender-3-z-axis-stabilizer-no-screws-remix (used in the top bracket model)
+    https://www.printables.com/model/895554-2020-3030-4040-t-slot-framing-structural-brackets (used in top and bottom brackets)
+
 This picture is old and doesn't include the latest designs for the frame, but it does include a rather handsome picture of Hamish so it's staying.
 
 ![image of repscrap](misc/Hamish.jpg?raw=true "repscrap")
