@@ -2,6 +2,35 @@ include <libraries/vslots.scad>
 include <libraries/motors.scad>
 
 
+/*
+module gantry(height = 200){
+    translate([-6,-20,height]){
+            rotate([90,0,0]){
+                color("black")
+                    vslot(length=380,type=2020);
+            }
+        }
+        translate([30,-27.5,height-18]){
+            nema17();
+        }
+}
+*/
+
+module gantry(height = 200){
+    translate([15,5,height]){
+            rotate([90,0,0]){
+                color("black")
+                    cylinder(430,5,5);
+            }
+        }
+        translate([30,-27.5,height-30]){
+            nema17();
+        }
+        translate([30,-434.5,height-30]){
+            nema17();
+        }
+}
+
 
 module oneside(){
     union(){
@@ -94,6 +123,7 @@ module oneside(){
                 cube([150,300,40]);
         }
         
+        //motors
         translate([-18,-27.5,0]){
             nema17();
         }
@@ -108,6 +138,17 @@ module oneside(){
             color("silver")
                 cylinder(500,4,4);
         }
+        
+        //z-rail
+        translate([10,8,48]){
+            color("white")
+                cube([9,7,500]);
+        }
+        translate([10,-434,48]){
+            color("white")
+                cube([9,7,500]);
+        }
+        gantry(200);
     }
 }
 
