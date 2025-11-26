@@ -5,17 +5,24 @@ include <libraries/motors.scad>
 
 module gantry(height = 200){
        //linear block
-       translate([4.5,5,height-20]){
+       translate([4.5,5,height-30]){
+            cube([20,6,40]);
+        }
+        translate([4.5,-430,height-20]){
             cube([20,6,40]);
         }
         
-        translate([15,0,height]){
+        translate([-8,-10.5,height-33]){
+            cube([25,10,5]);
+        }
+        
+        translate([4,-15,height]){
             rotate([90,0,0]){
                 color("black")
-                    cylinder(400,5,5);
+                    cylinder(420,5,5);
             }
         }
-        translate([25,10,height]){
+        translate([15,-5,height]){
             rotate([90,0,90]){
                 color("black")
                     cylinder(200,5,5);
@@ -27,7 +34,7 @@ module gantry(height = 200){
                     cylinder(200,5,5);
             }
         }
-        translate([30,-40,height-30]){
+        translate([10,-55,height-30]){
             nema17();
         }
         translate([30,-424.5,height-30]){
@@ -35,8 +42,32 @@ module gantry(height = 200){
         }
 }
 
-module printed_gantry(height = 200){
-    
+module printed_gantry(height = 200,colour="red"){
+    translate([4,-15,height]){
+            rotate([90,0,0]){
+                color(colour)
+                    difference(){
+                        cylinder(40,8,8);
+                        cylinder(40,5.1,5.1);
+                    }
+            }
+        }
+        translate([15,-5,height]){
+            rotate([90,0,90]){
+                color(colour)
+                    difference(){
+                        cylinder(40,8,8);
+                        cylinder(40,5.1,5.1);
+                        
+                    }
+            }
+        }
+        translate([-10,-20,height-33]){
+            color(colour)
+                difference(){
+                    cube([40,30,46]);
+                }
+        }
 }
 module frame(){
     
@@ -101,30 +132,34 @@ module frame(){
         }
         //bed
         translate([74,-355,0]){
-            color("red")
+            color("gray")
                 cube([150,300,40]);
         }
 }
 
-module printed_frame(){
+module printed_frame(colour="red"){
     rotate([0,180,0]){
-            import("../STLs/Bottom_Corner_Bracket.stl");
+            color(colour)
+                import("../STLs/Bottom_Corner_Bracket.stl");
         }
         translate([0,-420,0]){
         rotate([0,180,180]){
             mirror([1,0,0])
+                color(colour)
                 import("../STLs/Bottom_Corner_Bracket.stl");
         }
         }
         //top brackets
         translate([0,-420,550]){
             rotate([0,0,180]){
+                color(colour)
                 import("../STLs/Top_Corner_Bracket.stl");
             }
         }
         translate([0,-0,550]){
             rotate([0,0,0]){
                 mirror([1,0,0])
+                color(colour)
                 import("../STLs/Top_Corner_Bracket.stl");
             }
         }
@@ -165,9 +200,10 @@ module zmotion(){
 module oneside(){
     union(){
           frame();
-          printed_frame();
+          printed_frame("red");
           zmotion();
-          gantry(200);
+          gantry(100);
+          printed_gantry(100,"red");
     }
 }
 

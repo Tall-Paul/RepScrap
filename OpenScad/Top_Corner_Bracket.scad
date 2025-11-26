@@ -1,3 +1,5 @@
+include <libraries/vslots.scad>
+
 module extension(){
     translate([15,-85,-40]){
     rotate([90,0,90]){
@@ -41,6 +43,19 @@ module zaxis(){
     translate([-16,7,15]){
         cube([32,7.9,5]);
     }
+    translate([11,0,0]){
+        cube([5,20,20]);
+    }
+    /*
+    translate([-27,12,-50]){
+        difference(){
+            cube([46,26,50]);
+            translate([3,3,0]){
+                vslot(length=50,type=2040);
+            }
+        }
+    }
+    */
 
 }
 
