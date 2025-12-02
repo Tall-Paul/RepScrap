@@ -1,3 +1,5 @@
+include <libraries/vslots.scad>
+
 $fn=36;
 
 module extension(){
@@ -24,13 +26,13 @@ module foot(){
 
 module shave(){
     translate([20,-150,-150]){
-        cube([2,250,250]);
+        cube([100,250,250]);
     }
     translate([-150,-150,24]){
-        cube([200,250,2]);
+        cube([200,250,100]);
     }
     translate([-150,38,-150]){
-        cube([200,2,200]);
+        cube([200,100,200]);
     }
     
     translate([20,25,27]){
@@ -74,9 +76,30 @@ translate([16,34,180]){
     import("imports/90_Surface_Bracket_2.stl.stl");
     }
 }
-translate([-24,15,0]){
+translate([-24,14,0]){
  cube([40,20,20]);
-}  
+}
+    //sleeve
+    translate([-64,12,-3]){
+        difference(){
+            cube([40,26,27]);
+            translate([0,3,3]){
+                cube([40,20,20]);
+            }
+            translate([37.2,-1,0]){
+                rotate([0,43,0]){
+                    cube([5,24,5]);
+                }
+            }
+            translate([40,-5.07,0]){
+                rotate([0,0,45]){
+                    cube([5,5,24]);
+                }
+            }
+        }
+    }
+
+
 translate([1,0,0]){
     extension();
 }
@@ -90,24 +113,53 @@ rotate([180,270,90]){
         extension();
     }
 }
+
 translate([4,25,15]){
     cylinder(15,6.6,6.6);
 }
 
-//zaxis();
 
 
 }
 
 
-//shave corner
 
 shave();
 
 translate([4,25,15]){
-    cylinder(15,3.6,3.6);
+    cylinder(25,3.6,3.6);
 }
+translate([-14,24,-60]){
+    cylinder(100,2.6,2.6);
 }
+
+translate([-34,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+translate([-54,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+
+translate([6,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+
+translate([-34,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+translate([-54,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+
+}
+
+
 //add foot
 
 

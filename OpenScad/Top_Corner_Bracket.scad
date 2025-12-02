@@ -37,14 +37,14 @@ module shave(){
 }
 
 module zaxis(){
-    translate([-5,0.4,0]){
+    /*translate([-5,0.4,0]){
         import("imports/z-axis_support_bearing_no_screws.stl");
-    }
+    }*/
     translate([-16,7,15]){
-        cube([32,7.9,5]);
+        //cube([32,7.9,5]);
     }
     translate([11,0,0]){
-        cube([5,20,20]);
+        //cube([5,20,20]);
     }
     /*
     translate([-27,12,-50]){
@@ -88,6 +88,16 @@ translate([16,34,180]){
 translate([-24,15,0]){
  cube([40,20,20]);
 }  
+
+translate([-14,-10,0]){
+ cube([30,10,20]);
+}  
+
+translate([-18,-10,0]){
+ cube([10,30,20]);
+}  
+
+
 translate([1,0,0]){
     extension();
 }
@@ -102,7 +112,7 @@ rotate([180,270,90]){
     }
 }
 
-zaxis();
+//zaxis();
 
 
 }
@@ -124,6 +134,31 @@ translate([-24,-30,0]){
      cube([40,20,20]);
 }
 shave();
+
+translate([-14,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+
+translate([-34,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+translate([6,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+
+translate([6,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+translate([-4,-5,-60]){
+    cylinder(100,5,5);
+}
+translate([1,10,0]){
+    cube([10,20,15]);
+}
+
+
 }
 
 /*
