@@ -85,16 +85,18 @@ translate([16,34,180]){
     import("imports/90_Surface_Bracket_2.stl.stl");
     }
 }
-translate([-24,15,0]){
- cube([40,20,20]);
+translate([-24,11,0]){
+ cube([40,24,20]);
 }  
 
+
+
 translate([-14,-10,0]){
- cube([30,10,20]);
+  cube([30,25,20]);
 }  
 
 translate([-18,-10,0]){
- cube([10,30,20]);
+ //cube([10,30,20]);
 }  
 
 
@@ -113,7 +115,25 @@ rotate([180,270,90]){
 }
 
 //zaxis();
-
+translate([-104,11,-3]){
+        difference(){
+            cube([80,27,27]);
+            translate([0,3,3]){
+                cube([80,20,20]);
+            }
+            
+            /*translate([77.2,-1,0]){
+                rotate([0,43,0]){
+                    cube([5,24,5]);
+                }
+            }
+            translate([80.23,-4.05,0]){
+                rotate([0,0,47]){
+                    cube([5,5,24]);
+                }
+            }*/
+        }
+    }
 
 }
 
@@ -142,8 +162,52 @@ translate([-14,24,-60]){
 translate([-34,24,-60]){
     cylinder(100,2.6,2.6);
 }
-translate([6,24,-60]){
+translate([-54,24,-60]){
     cylinder(100,2.6,2.6);
+}
+translate([-74,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+translate([-94,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+
+translate([6,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+
+translate([-34,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+translate([-54,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+translate([-74,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+translate([-94,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+
+translate([-14,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+
+translate([-34,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+translate([6,24,-60]){
+    //cylinder(100,2.6,2.6);
 }
 
 translate([6,44,10]){
@@ -154,10 +218,9 @@ translate([6,44,10]){
 translate([-4,-5,-60]){
     cylinder(100,5,5);
 }
-translate([1,10,0]){
-    cube([10,20,15]);
-}
-
+translate([-6.5,-10,0]){
+ cube([5,4,20]);
+} 
 
 }
 

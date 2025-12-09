@@ -8,15 +8,15 @@ module gantry(height = 200){
        translate([4.5,5,height-30]){
             cube([20,6,40]);
         }
-        translate([4.5,-430,height-20]){
+        translate([4.5,-430,height-30]){
             cube([20,6,40]);
         }
         
         translate([-8,-10.5,height-33]){
-            cube([25,10,5]);
+            //cube([25,10,5]);
         }
         
-        translate([4,-15,height]){
+        translate([15,-15,height]){
             rotate([90,0,0]){
                 color("black")
                     cylinder(420,5,5);
@@ -25,7 +25,7 @@ module gantry(height = 200){
         translate([15,-5,height]){
             rotate([90,0,90]){
                 color("black")
-                    cylinder(200,5,5);
+                    cylinder(220,5,5);
             }
         }
         translate([25,-432,height]){
@@ -34,7 +34,7 @@ module gantry(height = 200){
                     cylinder(200,5,5);
             }
         }
-        translate([10,-55,height-30]){
+        translate([23,-57,height-30]){
             nema17();
         }
         translate([30,-424.5,height-30]){
@@ -42,32 +42,79 @@ module gantry(height = 200){
         }
 }
 
-module printed_gantry(height = 200,colour="red"){
-    translate([4,-15,height]){
-            rotate([90,0,0]){
-                color(colour)
-                    difference(){
-                        cylinder(40,8,8);
-                        cylinder(40,5.1,5.1);
-                    }
-            }
-        }
-        translate([15,-5,height]){
-            rotate([90,0,90]){
-                color(colour)
-                    difference(){
-                        cylinder(40,8,8);
-                        cylinder(40,5.1,5.1);
-                        
-                    }
-            }
-        }
-        translate([-10,-20,height-33]){
-            color(colour)
-                difference(){
-                    cube([40,30,46]);
+module printed_gantry_part(height = 200,colour="red"){
+    difference(){
+        hull(){
+        translate([15,-15,height]){
+                rotate([90,0,0]){
+                    color(colour)
+                        difference(){
+                            cylinder(40,8,8);
+                            cylinder(40,5.1,5.1);
+                        }
                 }
+            }
+            translate([15,-5,height]){
+                rotate([90,0,90]){
+                    color(colour)
+                        difference(){
+                            cylinder(40,8,8);
+                            cylinder(40,5.1,5.1);
+                            
+                        }
+                }
+            }
+            translate([-10,-20,height-33]){
+                color(colour)
+                    difference(){
+                        cube([40,30,46]);
+                    }
+            }
+         translate([20,-57,height-35]){
+            cube([45,45,5]);
         }
+        translate([20,-57,height+5]){
+            cube([45,45,5]);
+        }
+
+        }
+        gantry(height);
+        translate([22,-63,height-30]){
+            cube([50,50,50]);
+        }
+        translate([9.5,6,height-50]){
+            cube([10,4,80]);
+        }
+        translate([3.5,-5.5,height-50]){
+            cylinder(80,5,5);
+        }
+        translate([-11,-11,height-35]){
+            cube([31,11,4]);
+        }
+        
+        
+    }
+    difference(){
+        hull(){
+            translate([20,-55,height+8]){
+                cube([12,45,5]);
+            }
+            translate([20,-23,height+8]){
+                cube([45,12,5]);
+            }
+        }
+        translate([44.5,-36,height+8]){
+            cylinder(10,13,13);
+        }
+        translate([25,-16,height+7]){
+            cylinder(12,2,2);
+        }
+    }
+    
+    
+    
+   
+    
 }
 module frame(){
     
@@ -203,14 +250,19 @@ module oneside(){
           printed_frame("red");
           zmotion();
           gantry(100);
-          printed_gantry(100,"red");
+          printed_gantry_part(100,"red");
     }
 }
 
-union(){
-    oneside();
-    translate([448,0,0]){
-        mirror([1,0,0])
-            oneside();
+module main(){
+    union(){
+        oneside();
+        translate([448,0,0]){
+            mirror([1,0,0])
+                oneside();
+        }
     }
 }
+
+//main();
+printed_gantry_part(100,"red");

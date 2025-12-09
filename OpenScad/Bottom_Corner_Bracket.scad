@@ -1,4 +1,5 @@
 include <libraries/vslots.scad>
+include <libraries/motors.scad>
 
 $fn=36;
 
@@ -57,10 +58,18 @@ union(){
 translate([-4,15,0]){    
     cube([24,24,24]);
 }
+hull(){
+    translate([16,14,-68]){
+        cube([5,2,45]);
+    }
+    translate([16,-53,0]){
+        cube([5,48,2]);
+    }
+}
 
-translate([16,195,20]){
+translate([16,175,5]){
     rotate([90,180,90]){
-    import("C:/Users/tall_/Downloads/90_Surface_Bracket_2.stl.stl");
+    //import("C:/Users/tall_/Downloads/90_Surface_Bracket_2.stl.stl");
     }
 }
 
@@ -80,22 +89,23 @@ translate([-24,14,0]){
  cube([40,20,20]);
 }
     //sleeve
-    translate([-64,12,-3]){
+    translate([-104,11,-3]){
         difference(){
-            cube([40,26,27]);
+            cube([80,27,27]);
             translate([0,3,3]){
-                cube([40,20,20]);
+                cube([80,20,20]);
             }
-            translate([37.2,-1,0]){
+            
+            /*translate([77.2,-1,0]){
                 rotate([0,43,0]){
                     cube([5,24,5]);
                 }
             }
-            translate([40,-5.07,0]){
-                rotate([0,0,45]){
+            translate([80.23,-4.05,0]){
+                rotate([0,0,47]){
                     cube([5,5,24]);
                 }
-            }
+            }*/
         }
     }
 
@@ -139,6 +149,12 @@ translate([-34,24,-60]){
 translate([-54,24,-60]){
     cylinder(100,2.6,2.6);
 }
+translate([-74,24,-60]){
+    cylinder(100,2.6,2.6);
+}
+translate([-94,24,-60]){
+    cylinder(100,2.6,2.6);
+}
 
 translate([6,44,10]){
     rotate([90,0,0]){
@@ -156,6 +172,20 @@ translate([-54,44,10]){
         cylinder(110,2.6,2.6);
     }
 }
+translate([-74,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+translate([-94,44,10]){
+    rotate([90,0,0]){
+        cylinder(110,2.6,2.6);
+    }
+}
+
+translate([16,-27,-40]){
+    cube([2,42,40]);
+}
 
 }
 
@@ -170,8 +200,27 @@ translate([4,25,15]){
     }
 }
 
+module frame(){
+    translate([17.5,-29,0]){
+        rotate([0,180,0]){
+            nema17();
+        }
+    }
 
+    translate([-24,14,0]){
+        rotate([90,0,0]){
+            color("black")
+                vslot(length=100,type=2040);
+        }
+    }
+    translate([-24,34,0]){
+        rotate([180,0,0]){
+            color("black")
+                vslot(length=100,type=2040);
+        }
+    }
+}
 
-
+frame();
 
 
