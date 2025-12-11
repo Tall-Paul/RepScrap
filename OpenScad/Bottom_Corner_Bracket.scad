@@ -129,6 +129,14 @@ translate([4,25,15]){
 }
 
 
+    translate([-25,4,-45]){
+       cube([44,10,5]);
+    }
+    translate([-25,11,-65]){
+        cube([44,3,20]);
+    }
+
+
 
 }
 
@@ -136,6 +144,24 @@ translate([4,25,15]){
 
 shave();
 
+translate([-14,17,-55]){
+    rotate([90,0,0]){
+        cylinder(20,2.6,2.6);
+    }
+}
+translate([5,17,-55]){
+    rotate([90,0,0]){
+        cylinder(20,2.6,2.6);
+    }
+}
+
+
+translate([-19.2,7.7,-45]){
+    cylinder(5,1.5,1.5);
+}
+translate([11.8,7.7,-45]){
+    cylinder(5,1.5,1.5);
+}
 translate([4,25,15]){
     cylinder(25,3.6,3.6);
 }
@@ -193,6 +219,9 @@ translate([16,-27,-40]){
 //add foot
 
 
+
+
+
 translate([4,25,15]){
     difference(){
         cylinder(15,6.6,6.6);
@@ -221,6 +250,6 @@ module frame(){
     }
 }
 
-frame();
+//frame();
 
 

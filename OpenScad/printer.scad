@@ -264,5 +264,5 @@ module main(){
     }
 }
 
-//main();
-printed_gantry_part(100,"red");
+main();
+//printed_gantry_part(100,"red");
