@@ -282,19 +282,19 @@ module zmotion(){
 
 
 
-module oneside(){
+module oneside(height=200){
     union(){
           frame();
           printed_frame("yellow");
           zmotion();
-          gantry(100);
-          printed_gantry(100,"yellow");
+          gantry(height);
+          printed_gantry(height,"yellow");
     }
 }
 
-module main(){
+module main(height=200){
     union(){
-        oneside();
+        oneside(height);
         translate([448,0,0]){
             mirror([1,0,0])
                 oneside();
