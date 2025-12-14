@@ -222,6 +222,10 @@ translate([-6.5,-10,0]){
  cube([5,4,20]);
 } 
 
+translate([-18.5,6.5,-2]){
+    cube([9,8,7]);
+}
+
 }
 
 /*
@@ -235,9 +239,24 @@ translate([200,200,200]){
 }
 */
   
+module frame(){
+ 
 
+    translate([-4,-10,0]){
+        rotate([90,0,0]){
+            color("red")
+                vslot(length=100,type=2020);
+        }
+    }
+    translate([-24,34,0]){
+        rotate([180,0,0]){
+            color("red")
+                vslot(length=100,type=2040);
+        }
+    }
+}
 
-
+//frame();
 
 
 

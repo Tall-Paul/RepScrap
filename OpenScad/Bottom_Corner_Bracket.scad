@@ -132,9 +132,20 @@ translate([4,25,15]){
     translate([-25,4,-45]){
        cube([44,10,5]);
     }
-    translate([-25,11,-65]){
-        cube([44,3,20]);
+    translate([-25,11,-55]){
+        cube([44,3,10]);
     }
+    hull(){
+        translate([-10,11,-55]){
+            cube([24,3,1]);
+        }
+        translate([16,11,-65]){
+            cube([1,3,10]);
+        }
+    }
+    
+
+    
 
 
 
@@ -143,13 +154,17 @@ translate([4,25,15]){
 
 
 shave();
+    translate([-18.5,10,-56]){
+    cube([9,5,3]);
+}
 
-translate([-14,17,-55]){
+
+translate([-14,17,-50]){
     rotate([90,0,0]){
         cylinder(20,2.6,2.6);
     }
 }
-translate([5,17,-55]){
+translate([5,17,-50]){
     rotate([90,0,0]){
         cylinder(20,2.6,2.6);
     }
@@ -238,13 +253,13 @@ module frame(){
 
     translate([-24,14,0]){
         rotate([90,0,0]){
-            color("black")
+            color("red")
                 vslot(length=100,type=2040);
         }
     }
     translate([-24,34,0]){
         rotate([180,0,0]){
-            color("black")
+            color("red")
                 vslot(length=100,type=2040);
         }
     }
