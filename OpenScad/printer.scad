@@ -58,24 +58,24 @@ module printed_gantry_part(height = 200,colour="red"){
             translate([2,-15,height-20]){
                 rotate([90,0,0]){
                     color(colour)
-                        cylinder(31,11,11);
+                        cylinder(21,11,11);
                 }
             }
-            translate([13,-45,height-33]){
+            translate([13,-35,height-33]){
                color(colour)  
-                    cube([2,30,5]);
+                    cube([2,20,5]);
             }
             
             //the other 'arm'
             translate([25,5,height-20]){
                 rotate([90,0,90]){
                     color(colour)
-                            cylinder(30.3,11,11);
+                            cylinder(25.3,11,11);
                 }
             }
             translate([25,-4,height-33]){
                color(colour)  
-                 cube([30.3,3,2]);
+                 cube([25.3,3,2]);
             }
       
             //back section
@@ -89,7 +89,7 @@ module printed_gantry_part(height = 200,colour="red"){
         color(colour)   
             gantry(height);
         //clear out more space around the stepper
-        translate([19 ,-63,height-60]){
+        translate([16 ,-59,height-60]){
              color(colour) 
                    cube([50,50,75]);
         }
@@ -99,7 +99,7 @@ module printed_gantry_part(height = 200,colour="red"){
                 cube([10,7,80]);
         }
         //space for the threaded rod
-        translate([3.5,-5,height-50]){
+        translate([3.5,-7,height-50]){
              color(colour) 
                 cylinder(80,5.1,5.1);
         }
@@ -110,7 +110,7 @@ module printed_gantry_part(height = 200,colour="red"){
                    color(colour)  cylinder(45,8.1,8.1);
                 }
       }  
-      translate([32,5,height-20]){
+      translate([27,5,height-20]){
                 rotate([90,0,90]){
                         difference(){
                            color(colour)   
@@ -124,7 +124,7 @@ module printed_gantry_part(height = 200,colour="red"){
             cube([10,45,45]);
          }   
      }
-     translate([32,-1,height-17]){       
+     translate([27,-1,height-17]){       
          rotate([0,0,0]){
             cube([45,10,50]);
          }   
@@ -150,10 +150,10 @@ module printed_gantry_part(height = 200,colour="red"){
          }
          //plane off back
          translate([-20,10,height-33]){
-             cube([45,10,46]);
+             cube([44,10,46]);
          }
          //space for the nut that goes on the threaded rod
-        translate([-2.75,-20,height-35]){
+        translate([-2.75,-22,height-35]){
              color(colour) 
                 cube([12.5,30,6]);
         }
@@ -190,7 +190,7 @@ module printed_gantry_part(height = 200,colour="red"){
         }
     }
     //space for the nut that goes on the threaded rod duplicated for stepper mount edge
-        translate([-2.75,-20,height-35]){
+        translate([-2.75,-22,height-35]){
              color(colour) 
                 cube([12.5,30,6]);
         }
