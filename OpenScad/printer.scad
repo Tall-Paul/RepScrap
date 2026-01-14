@@ -12,10 +12,10 @@ module printed_gantry(height=200,colour="red"){
 }
 module gantry(height = 200){
        //linear block
-       translate([4.5,5,height-30]){
+       translate([4.5,5,height-28]){
             cube([20,6,40]);
         }
-        translate([4.5,-430,height-30]){
+        translate([4.5,-430,height-28]){
             cube([20,6,40]);
         }
         
@@ -23,28 +23,28 @@ module gantry(height = 200){
             //cube([25,10,5]);
         }
         
-        translate([15,-15,height]){
+        translate([2,-15,height-20]){
             rotate([90,0,0]){
                 color("black")
                     cylinder(420,5,5);
             }
         }
-        translate([15,-5,height]){
+        translate([32,2,height-20]){
             rotate([90,0,90]){
                 color("black")
                     cylinder(220,5,5);
             }
         }
-        translate([25,-415,height]){
+        translate([25,-415,height-20]){
             rotate([90,0,90]){
                 color("black")
                     cylinder(200,5,5);
             }
         }
-        translate([22,-55.5,height-30]){
+        translate([22,-55.5,height-70]){
             nema17();
         }
-        translate([22,-406.5,height-30]){
+        translate([22,-406.5,height-70]){
             nema17();
         }
 }
@@ -52,100 +52,149 @@ module gantry(height = 200){
 module printed_gantry_part(height = 200,colour="red"){
     difference(){
      color(colour)
+        //rough shape
         hull(){
-        translate([15,-15,height]){
+            //1 'arm'
+            translate([2,-15,height-20]){
                 rotate([90,0,0]){
                     color(colour)
-                        difference(){
-                            cylinder(39.5,8,8);
-                            //cylinder(39,6,6);
-                        }
+                        cylinder(31,11,11);
                 }
             }
-            translate([22,-5,height]){
-                rotate([90,0,90]){
-                    color(colour)
-                        difference(){
-                            cylinder(42.3,8,8);
-                            //cylinder(41,6,6);
-                            
-                        }
-                }
+            translate([13,-45,height-33]){
+               color(colour)  
+                    cube([2,30,5]);
             }
             
+            //the other 'arm'
+            translate([25,5,height-20]){
+                rotate([90,0,90]){
+                    color(colour)
+                            cylinder(30.3,11,11);
+                }
+            }
+            translate([25,-4,height-33]){
+               color(colour)  
+                 cube([30.3,3,2]);
+            }
+      
+            //back section
             translate([-10,-15,height-33]){
-                color(colour)
-                    difference(){
-                       color(colour)  cube([35,25,46]);
-                    }
+                       color(colour)  
+                            cube([35,25,46]);
             }
-            translate([20,-55.5,height+11]){
-               color(colour)  cube([2,41,2]);
-            }
-             translate([22,-14,height+11]){
-               color(colour)  cube([42.3,3,2]);
-            }
-        
-
         }
         
-      color(colour)   gantry(height);
-        translate([22,-63,height-35]){
-             color(colour) cube([50,50,55]);
+        //subtract the gantry
+        color(colour)   
+            gantry(height);
+        //clear out more space around the stepper
+        translate([19 ,-63,height-60]){
+             color(colour) 
+                   cube([50,50,75]);
         }
+        //space for the linear rail
         translate([9.5,6,height-50]){
-             color(colour) cube([10,4,80]);
+             color(colour) 
+                cube([10,7,80]);
         }
-        translate([3.5,-5.5,height-50]){
-             color(colour) cylinder(80,5.1,5.1);
+        //space for the threaded rod
+        translate([3.5,-5,height-50]){
+             color(colour) 
+                cylinder(80,5.1,5.1);
         }
-        translate([-12,-11,height-35]){
-             color(colour) cube([30,12.5,4]);
-        }
-      translate([15,-15,height]){
+        
+       //space for gantry rod
+      translate([2,-15,height-20]){
                 rotate([90,0,0]){
-                            color(colour)  cylinder(45,5.1,5.1);
+                   color(colour)  cylinder(45,8.1,8.1);
                 }
       }  
-      translate([22,-5,height]){
+      translate([32,5,height-20]){
                 rotate([90,0,90]){
                         difference(){
-                           color(colour)   cylinder(45,5.1,5.1);
+                           color(colour)   
+                            cylinder(35,8.1,8.1);
                             
                         }
                 }
             }
-        
-    }
-     color(colour)
-     translate([22,-15,height+11]){
-             color(colour)    cube([42.3,3,2]);
-            }
-     color(colour)
-    translate([22,-55.5,height+8]){
-        difference(){
-            width = 42.3;
-            cube([width,width,5]);
-            centre = width / 2;
-            offset = 31/2;
-            
-            translate([centre,centre,0]){
-                cylinder(10,11.5,11.5);
-            }
-            translate([centre - offset,centre - offset,0]){
-                cylinder(12,2,2);
+     translate([0,-60,height-21]){       
+         rotate([0,0,0]){
+            cube([10,45,45]);
+         }   
+     }
+     translate([32,-1,height-17]){       
+         rotate([0,0,0]){
+            cube([45,10,50]);
+         }   
+     }
+     //screw holes for stepper mount
+         translate([30,-54,height-33]){
+            rotate([0,0,45]){
+             width = 42.3;
+                cube([width,width,5]);
+                centre = width / 2;
+                offset = 31/2;
+             translate([centre - offset,centre - offset,0]){
+                cylinder(60,4.5,4.5);
             }
             translate([centre - offset,centre + offset,0]){
-                cylinder(12,2,2);
-            }
-            translate([centre + offset,centre - offset,0]){
-                cylinder(12,2,2);
+                cylinder(60,3,3);
             }
             translate([centre + offset,centre + offset,0]){
-                cylinder(12,2,2);
+                cylinder(60,4.5,4.5);
+            }
+            }
+             
+         }
+         //plane off back
+         translate([-20,10,height-33]){
+             cube([45,10,46]);
+         }
+         //space for the nut that goes on the threaded rod
+        translate([-2.75,-20,height-35]){
+             color(colour) 
+                cube([12.5,30,6]);
+        }
+    }
+   
+            
+     //the stepper motor mount
+    difference(){
+     color(colour)
+      translate([30,-54,height-33]){
+        rotate([0,0,45]){
+            difference(){
+                width = 42.3;
+                cube([width,width,5]);
+                centre = width / 2;
+                offset = 31/2;
+                
+                translate([centre,centre,0]){
+                    cylinder(10,11.5,11.5);
+                }
+                translate([centre - offset,centre - offset,0]){
+                    cylinder(12,2,2);
+                }
+                translate([centre - offset,centre + offset,0]){
+                    cylinder(12,2,2);
+                }
+                translate([centre + offset,centre - offset,0]){
+                    cylinder(12,2,2);
+                }
+                translate([centre + offset,centre + offset,0]){
+                    cylinder(12,2,2);
+                }
             }
         }
     }
+    //space for the nut that goes on the threaded rod duplicated for stepper mount edge
+        translate([-2.75,-20,height-35]){
+             color(colour) 
+                cube([12.5,30,6]);
+        }
+}
     
     
     
@@ -302,5 +351,5 @@ module main(height=200){
     }
 }
 
-main();
-//printed_gantry_part(100,"purple");
+//main();
+printed_gantry_part(100,"yellow");
