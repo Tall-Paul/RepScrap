@@ -89,7 +89,7 @@ module printed_gantry_part(height = 200,colour="red"){
         color(colour)   
             gantry(height);
         //clear out more space around the stepper
-        translate([16 ,-59,height-60]){
+        translate([16 ,-61,height-60]){
              color(colour) 
                    cube([50,50,75]);
         }
@@ -130,7 +130,7 @@ module printed_gantry_part(height = 200,colour="red"){
          }   
      }
      //screw holes for stepper mount
-         translate([30,-54,height-33]){
+         translate([32,-56,height-33]){
             rotate([0,0,45]){
              width = 42.3;
                 cube([width,width,5]);
@@ -163,11 +163,11 @@ module printed_gantry_part(height = 200,colour="red"){
      //the stepper motor mount
     difference(){
      color(colour)
-      translate([30,-54,height-33]){
+      translate([32,-56,height-33]){
         rotate([0,0,45]){
             difference(){
                 width = 42.3;
-                cube([width,width,5]);
+                cube([width,width+3,5]);
                 centre = width / 2;
                 offset = 31/2;
                 
