@@ -83,13 +83,23 @@ module printed_gantry_part(height = 200,colour="red"){
                        color(colour)  
                             cube([35,25,46]);
             }
+            
+            //motor mount
+            translate([32,-56,height+8]){
+                rotate([0,0,45]){
+                cube([42.3,42.3,5]);
+            }
+            }
         }
         
         //subtract the gantry
-        color(colour)   
-            gantry(height);
+       // color(colour)   
+            //gantry(height);
         //clear out more space around the stepper
-        translate([16 ,-61,height-60]){
+        translate([4.5,5,height-28]){
+            cube([20,6,40]);
+        }
+        translate([13.5 ,-59.5,height-60]){
              color(colour) 
                    cube([50,50,75]);
         }
@@ -119,21 +129,22 @@ module printed_gantry_part(height = 200,colour="red"){
                         }
                 }
             }
-     translate([0,-60,height-21]){       
+     //cutouts to get rods in
+     translate([-45,-60,height-23]){       
          rotate([0,0,0]){
-            cube([10,45,45]);
+            cube([45,45,10]);
          }   
      }
-     translate([27,-1,height-17]){       
+     translate([27,-1,height-25]){       
          rotate([0,0,0]){
-            cube([45,10,50]);
+            cube([45,45,10]);
          }   
      }
      //screw holes for stepper mount
          translate([32,-56,height-33]){
             rotate([0,0,45]){
              width = 42.3;
-                cube([width,width,5]);
+                //cube([width,width,5]);
                 centre = width / 2;
                 offset = 31/2;
              translate([centre - offset,centre - offset,0]){
@@ -163,7 +174,7 @@ module printed_gantry_part(height = 200,colour="red"){
      //the stepper motor mount
     difference(){
      color(colour)
-      translate([32,-56,height-33]){
+      translate([32,-56,height+8]){
         rotate([0,0,45]){
             difference(){
                 width = 42.3;
